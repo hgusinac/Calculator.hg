@@ -2,9 +2,9 @@
 
 namespace Calculator
 {
-    class Program
+     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
 
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -19,12 +19,14 @@ namespace Calculator
                 Console.Write("Enter ur secund Number:");
                 double num2 = Convert.ToDouble(Console.ReadLine());
                 Console.ResetColor();
+
+
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("---Menu---\nPress number key to run menu options\nA=Addition\nS=Subtraction\nM=Multiplication\nD=Division");
                 Console.ResetColor();
 
                 char AssigmentChoice = Console.ReadKey(true).KeyChar;
-
+                double sum = num1 + num2;
 
                 switch (AssigmentChoice)
                 {
@@ -32,10 +34,12 @@ namespace Calculator
                     case 'A':
 
                         Addition(num1, num2);
+
                         break;
                     case 's':
                     case 'S':
                         Subtraction(num1, num2);
+
                         break;
                     case 'm':
                     case 'M':
@@ -57,33 +61,67 @@ namespace Calculator
             } while (Console.ReadKey(true).KeyChar == 'm');
 
         }
-        static void Addition(double num1, double num2)
-        {
-            Console.WriteLine(num1 + num2);
-        }
-        static void Subtraction(double num1, double num2)
-        {
-            Console.WriteLine(num1 - num2);
-        }
-        static void Multiplication(double num1, double num2)
-        {
-            Console.WriteLine(num1 * num2);
-        }
-        static void Division(double num1, double num2)
-        {
 
+
+        public static double Addition(double[] numbers)
+        {
+            double sum = 0;
+            foreach (double number in numbers)
+            {
+                sum = number + sum;
+            }
+
+            return sum;
+        }
+        public static double Subtraction(double[] numbers)
+        {
+            double sum = 0;
+            foreach (double number in numbers)
+            {
+                sum += number;
+               
+            }
+
+            return sum;
+        }
+        public static double Addition(double num1, double num2)
+        {
+            double sum = num1 + num2;
+            Console.WriteLine(num1 + num2);
+            
+                
+
+            return sum;
+        }
+        public static double Subtraction(double num1, double num2)
+        {
+            double sum = num1 - num2;
+            Console.WriteLine(num1 - num2);
+            return sum;
+        }
+        public static double Multiplication(double num1, double num2)
+        {
+            double sum = num1 * num2;
+            Console.WriteLine(num1 * num2);
+            return sum;
+        }
+        public static double  Division(double num1, double num2)
+        {
+           double sum = num1 / num2;
+            
             if (num2 == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("U cant devide by 0");
                 Console.ResetColor();
+                return 0;
             }
 
             else
             {
                 Console.WriteLine(num1 / num2);
             }
-
+            return sum;
 
         }
 
