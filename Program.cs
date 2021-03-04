@@ -2,7 +2,7 @@
 
 namespace Calculator
 {
-     public class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
@@ -12,7 +12,8 @@ namespace Calculator
 
             do
             {
-
+                try
+                {
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.Write("Enter your first Number:");
                 double num1 = Convert.ToDouble(Console.ReadLine());
@@ -50,12 +51,20 @@ namespace Calculator
                         Console.WriteLine("Invalid Keypress");
                         break;
                 }
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Not a number. ");
+                    Console.ResetColor();
+                }
                 Console.WriteLine("Try some more numbers (M to Menu)");
                 Console.ResetColor();
 
             } while (Console.ReadKey(true).KeyChar == 'm');
 
         }
+
 
 
         public static double Addition(double[] numbers)
@@ -74,7 +83,7 @@ namespace Calculator
             foreach (double number in numbers)
             {
                 sum += number;
-               
+
             }
 
             return sum;
@@ -83,8 +92,6 @@ namespace Calculator
         {
             double sum = num1 + num2;
             Console.WriteLine(num1 + num2);
-            
-                
 
             return sum;
         }
@@ -100,16 +107,18 @@ namespace Calculator
             Console.WriteLine(num1 * num2);
             return sum;
         }
-        public static double  Division(double num1, double num2)
+        public static double Division(double num1, double num2)
         {
-           double sum = num1 / num2;
-            
+            double sum = num1 / num2;
+
             if (num2 == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("U cant devide by 0");
+                Console.WriteLine("u cant devide by 0");
                 Console.ResetColor();
+
                 return 0;
+
             }
 
             else
