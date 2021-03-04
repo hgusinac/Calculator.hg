@@ -32,14 +32,11 @@ namespace Calculator
                 {
                     case 'a':
                     case 'A':
-
                         Addition(num1, num2);
-
                         break;
                     case 's':
                     case 'S':
                         Subtraction(num1, num2);
-
                         break;
                     case 'm':
                     case 'M':
@@ -51,9 +48,7 @@ namespace Calculator
                         break;
                     default:
                         Console.WriteLine("Invalid Keypress");
-
                         break;
-
                 }
                 Console.WriteLine("Try some more numbers (M to Menu)");
                 Console.ResetColor();
