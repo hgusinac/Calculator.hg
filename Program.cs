@@ -14,43 +14,50 @@ namespace Calculator
             {
                 try
                 {
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.Write("Enter your first Number:");
-                double num1 = Convert.ToDouble(Console.ReadLine());
-                Console.Write("Enter ur secund Number:");
-                double num2 = Convert.ToDouble(Console.ReadLine());
-                Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("Enter your first Number:");
+                    double num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Enter ur secund Number:");
+                    double num2 = Convert.ToDouble(Console.ReadLine());
+                    Console.ResetColor();
+
+                    double sum = 0;
 
 
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("---Menu---\nPress number key to run menu options\nA=Addition\nS=Subtraction\nM=Multiplication\nD=Division");
-                Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("---Menu---\nPress number key to run menu options\nA=Addition\nS=Subtraction\nM=Multiplication\nD=Division");
+                    Console.ResetColor();
 
-                char AssigmentChoice = Console.ReadKey(true).KeyChar;
-                double sum = num1 + num2;
+                    char AssigmentChoice = Console.ReadKey(true).KeyChar;
 
-                switch (AssigmentChoice)
-                {
-                    case 'a':
-                    case 'A':
-                        Addition(num1, num2);
-                        break;
-                    case 's':
-                    case 'S':
-                        Subtraction(num1, num2);
-                        break;
-                    case 'm':
-                    case 'M':
-                        Multiplication(num1, num2);
-                        break;
-                    case 'd':
-                    case 'D':
-                        Division(num1, num2);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid Keypress");
-                        break;
-                }
+                    switch (AssigmentChoice)
+                    {
+                        case 'a':
+                        case 'A':
+                            Console.WriteLine(Addition(num1, num2));
+                            break;
+                        case 's':
+                        case 'S':
+                            Console.WriteLine(Subtraction(num1, num2));
+                            break;
+                        case 'm':
+                        case 'M':
+                            Console.WriteLine(Multiplication(num1, num2));
+                            break;
+                        case 'd':
+                        case 'D':
+                            if (num2 == 0)
+                            { Console.WriteLine("U can't devide by 0"); }
+                            else
+                            {
+                            Division(num1, num2);
+                            }
+
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Keypress");
+                            break;
+                    }
                 }
                 catch (Exception)
                 {
@@ -85,47 +92,31 @@ namespace Calculator
                 sum += number;
 
             }
-
             return sum;
         }
         public static double Addition(double num1, double num2)
         {
-            double sum = num1 + num2;
-            Console.WriteLine(num1 + num2);
-
-            return sum;
+            return num1 + num2;
         }
         public static double Subtraction(double num1, double num2)
         {
-            double sum = num1 - num2;
-            Console.WriteLine(num1 - num2);
-            return sum;
+            return num1 - num2;
         }
         public static double Multiplication(double num1, double num2)
         {
-            double sum = num1 * num2;
-            Console.WriteLine(num1 * num2);
-            return sum;
+            return num1 * num2;
         }
         public static double Division(double num1, double num2)
         {
-            double sum = num1 / num2;
-
             if (num2 == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("u cant devide by 0");
-                Console.ResetColor();
-
                 return 0;
-
             }
 
             else
             {
-                Console.WriteLine(num1 / num2);
+                return num1 / num2;
             }
-            return sum;
 
         }
 
